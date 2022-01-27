@@ -13,7 +13,7 @@ app = dash.Dash(__name__)
 
 # Build dash app layout
 app.layout = html.Div(children=[ html.H1('Flight Delay Time statistics',style={'textAlign':'center','color':'#503D36','font-size':30}),
-                                html.Div(["Input Year: ", dcc.Input(id='input-year',value='2010',type='number',style={'height':35px,'font-size':30})],
+                                html.Div(["Input Year: ", dcc.Input(id='input-year',value='2010',type='number',style={'height':'35px','font-size':30}),],
                                 style={'font-size': 30}),
                                 html.Br(),
                                 html.Br(), 
