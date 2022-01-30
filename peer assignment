@@ -71,7 +71,7 @@ def compute_data_choice_2(df):
 
 
 # Application layout
-app.layout = html.Div(children=[html.H1('US Domestic Airline Flights performance',style={'textAlign':'center','color':'#503D36','font-size':24}), 
+app.layout = html.Div(children=[html.H1('US Domestic Airline Flights performance',style={'text-align-last':'center','color':'#503D36','font-size':24}), 
                                 # TASK1: Add title to the dashboard
                                 # Enter your code below. Make sure you have correct formatting.
     
@@ -81,21 +81,20 @@ app.layout = html.Div(children=[html.H1('US Domestic Airline Flights performance
                                     # Add an division
                                     html.Div([
                                         # Create an division for adding dropdown helper text for report type
-                                        html.Div( [ html.H2('Report Type:', style={'margin-right': '2em'})])
-                                         ]),
-                                
+                                        html.Div( [ html.H2('Report Type:', style={'margin-right': '2em'})
+                                        ]
+                                        ),
                                         # TASK2: Add a dropdown
                                         # Enter your code below. Make sure you have correct formatting.
-                                        html.Div([ dcc.Dropdown( id='input-type',
-                                                                  options=[
-                                                                        {'label': 'Yearly Airline Performnace report','value':'OPT1' },
+                                         dcc.Dropdown( id='input-type',
+                                                        options=[
+                                                                        {'label': 'Yearly Airline Performnace Report','value':'OPT1' },
                                                                          {'label': 'Yearly Airline Delay Report','value':'OPT2'}],
-                                                                  placeholder='Select a report type',
-                                                                   style={'width':'80%','padding':'3px','font-size': '20px','text-align-last':'center'} ),
-                                                                   ]),
+                                                        placeholder="Select a Report Type",
+                                                        style={'width':'80%','padding':'3px','font-size': '20px','text-align-last':'center'} ),
                                     # Place them next to each other using the division style
                                                                     
-                                                                ], style={'display':'flex'}),
+                                                ],style={'display': 'flex'}),
                                     
                                    # Add next division 
                                    html.Div([
@@ -109,7 +108,7 @@ app.layout = html.Div(children=[html.H1('US Domestic Airline Flights performance
                                                      # Update dropdown values using list comphrehension
                                                      options=[{'label': i, 'value': i} for i in year_list],
                                                      placeholder="Select a year",
-                                                     style={'width':'80%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}),
+                                                     style={'width':'20%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}),
                                             # Place them next to each other using the division style
                                             ], style={'display': 'flex'}), 
                                           
@@ -127,7 +126,7 @@ app.layout = html.Div(children=[html.H1('US Domestic Airline Flights performance
                                 # Enter your code below. Make sure you have correct formatting.
                               html.Div([ html.Div([], id='plot4'),
                                html.Div([],id='plot5') ],style={'display': 'flex'})
-                    ])
+                    ]),])
                                 
 
 # Callback function definition
@@ -215,4 +214,4 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
 
 # Run the app
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(mode="inline", host="localhost", debug=False, dev_tools_ui=False, dev_tools_props_check=False)
